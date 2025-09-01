@@ -6,7 +6,7 @@
 #    By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/21 14:52:13 by clnicola          #+#    #+#              #
-#    Updated: 2025/08/21 16:18:37 by clnicola         ###   ########.fr        #
+#    Updated: 2025/09/01 14:46:48 by clnicola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ MINILIBX_DIR = minilibx-linux
 MINILIBX = $(MINILIBX_DIR)/libmlx_Linux.a
 
 SOURCES = \
-	test.c\
+	fract-ol.c\
+	init.c\
+	rendering.c\
+	maths.c\
 
 
 HEADER = -I.
