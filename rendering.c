@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 12:04:11 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/01 19:16:45 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/03 14:44:36 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,14 @@ void	render_fract(t_fractal *fractal)
 		}
 		j++;
 	}
-	mlx_put_image_to_window(fractal->mlx_connection,fractal->mlx_win,fractal->image.img_ptr,0,0);
+	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_win,
+		fractal->image.img_ptr, 0, 0);
 }
 
 void	is_in_set(int x, int y, t_fractal *fractal)
 {
-	int	i;
-	int color;
+	int			i;
+	int			color;
 	t_complex	z;
 	t_complex	c;
 
@@ -54,13 +55,14 @@ void	is_in_set(int x, int y, t_fractal *fractal)
 	while (i < fractal->precision)
 	{
 		z = add_complex(square_complex(z), c);
-		if((z.x_real * z.x_real) + (z.y_imaginary * z.y_imaginary) > fractal->escape)
-			{
-				color = map(i,BLACK, WHITE, 0 ,fractal->precision);
-				ft_pixel_put(&fractal->image,x,y,color);
-				return ;
-			}
-			i++;
+		if ((z.x_real * z.x_real) + (z.y_imaginary
+				* z.y_imaginary) > fractal->escape)
+		{
+			color = map(i, BLACK, WHITE, 0, fractal->precision);
+			ft_pixel_put(&fractal->image, x, y, color);
+			return ;
+		}
+		i++;
 	}
-	ft_pixel_put(&fractal->image,x,y,CYAN_AQUA);
+	ft_pixel_put(&fractal->image, x, y, CYAN_AQUA);
 }

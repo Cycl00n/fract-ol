@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:32:19 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/01 19:02:03 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/03 15:06:28 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ void	fractal_init(t_fractal *fractal)
 	fractal->image.img_pxl_ptr = mlx_get_data_addr(fractal->image.img_ptr,
 			&fractal->image.bits_pxl, &fractal->image.line_length,
 			&fractal->image.endian);
-	//event_init();
+	// event_init();
 	data_init(fractal);
+}
+
+void event_init(t_fractal *fractal)
+{
+	mlx_hook(fractal->mlx_win, KeyPress, KeyPressMask, key_handle, fractal);
+	mlx_hook(fractal->mlx_win, ButtonPress, ButtonPressMask, mouse_handle, fractal);
+	mlx_hook(fractal->mlx_win, DestroyNotify, StructureNotifyMask, close_handle, fractal);
 }
