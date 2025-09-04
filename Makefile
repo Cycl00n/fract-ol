@@ -6,7 +6,7 @@
 #    By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/21 14:52:13 by clnicola          #+#    #+#              #
-#    Updated: 2025/09/01 14:46:48 by clnicola         ###   ########.fr        #
+#    Updated: 2025/09/04 10:38:36 by clnicola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SOURCES = \
 	init.c\
 	rendering.c\
 	maths.c\
+	handlers.c\
 
 
 HEADER = -I.

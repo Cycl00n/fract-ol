@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:50:55 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/03 15:05:39 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/04 13:15:07 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	close_window(t_fractal *fractal)
 {
+	mlx_destroy_image(fractal->mlx_connection,fractal->image.img_ptr);
 	mlx_destroy_window(fractal->mlx_connection, fractal->mlx_win);
 	mlx_destroy_display(fractal->mlx_connection);
 	free(fractal->mlx_connection);

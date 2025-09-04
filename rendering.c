@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 12:04:11 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/03 14:44:36 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/04 13:46:03 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_pixel_put(t_image *img, int x, int y, int color)
 	int	offset;
 
 	offset = (img->line_length * y) + (x * (img->bits_pxl / 8));
-	*((unsigned int *)(offset + img->img_pxl_ptr)) = color;
+	*(unsigned int *)(offset + img->img_pxl_ptr) = color;
 }
 
 void	render_fract(t_fractal *fractal)
@@ -50,8 +50,8 @@ void	is_in_set(int x, int y, t_fractal *fractal)
 	i = 0;
 	z.x_real = 0.0;
 	z.y_imaginary = 0.0;
-	c.x_real = map(x, -2, +2, 0, WIDTH);
-	c.y_imaginary = map(y, +2, -2, 0, HEIGHT);
+	c.x_real = map(x, -2, +2, 0, WIDTH) * fractal->zoom + fractal->shift_x;
+	c.y_imaginary = map(y, +2, -2, 0, HEIGHT) * fractal->zoom + fractal->shift_y;
 	while (i < fractal->precision)
 	{
 		z = add_complex(square_complex(z), c);
