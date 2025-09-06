@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:32:19 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/04 13:26:25 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/06 17:08:56 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	data_init(t_fractal *fractal)
 	fractal->precision = 40;
 	fractal->shift_x = 0;
 	fractal->shift_y = 0;
-	fractal->zoom = 0.25;
+	fractal->zoom = 1;
 }
 
 void	fractal_init(t_fractal *fractal)
@@ -43,9 +43,11 @@ void	fractal_init(t_fractal *fractal)
 	data_init(fractal);
 }
 
-void event_init(t_fractal *fractal)
+void	event_init(t_fractal *fractal)
 {
 	mlx_hook(fractal->mlx_win, KeyPress, KeyPressMask, key_handle, fractal);
-	mlx_hook(fractal->mlx_win, ButtonPress, ButtonPressMask, mouse_handle, fractal);
-	mlx_hook(fractal->mlx_win, DestroyNotify, StructureNotifyMask, close_window, fractal);
+	mlx_hook(fractal->mlx_win, ButtonPress, ButtonPressMask, mouse_handle,
+		fractal);
+	mlx_hook(fractal->mlx_win, DestroyNotify, StructureNotifyMask, close_window,
+		fractal);
 }

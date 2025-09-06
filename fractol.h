@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:52:10 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/04 13:28:03 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/06 17:06:00 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "minilibx-linux/mlx_int.h"
 # include <sys/time.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1000
+# define HEIGHT 1000
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
@@ -63,9 +63,11 @@ typedef struct s_fractal
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
+	double	julia_x;
+	double	julia_y;
 }			t_fractal;
 
-void	ft_pixel_put(t_image *img, int x, int y, int color);
+void		ft_pixel_put(t_image *img, int x, int y, int color);
 t_complex	square_complex(t_complex z);
 t_complex	add_complex(t_complex z1, t_complex z2);
 void		ft_pixel_put(t_image *img, int x, int y, int color);
@@ -74,10 +76,12 @@ void		is_in_set(int x, int y, t_fractal *fractal);
 void		fractal_init(t_fractal *fractal);
 void		is_in_set(int i, int j, t_fractal *fractal);
 double		map(double unscaled_num, double new_min, double new_max,
-				double old_min, double old_max);
-int key_handle(int keysym, t_fractal *fractal);
-void event_init(t_fractal *fractal);
-int	close_window(t_fractal *fractal);
-int mouse_handle(int button, int x, int y, t_fractal *fractal);
+				double old_max);
+int			key_handle(int keysym, t_fractal *fractal);
+void		event_init(t_fractal *fractal);
+int			close_window(t_fractal *fractal);
+int			mouse_handle(int button, int x, int y, t_fractal *fractal);
+double		atodbl(char *s);
+void		mandel_julia(t_complex *z, t_complex *c, t_fractal *fractal);
 
 #endif
